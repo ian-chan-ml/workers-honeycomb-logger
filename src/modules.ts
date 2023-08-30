@@ -57,7 +57,7 @@ async function isRealTraceRequest(trace_id: string): Promise<boolean> {
 async function sendEventToHoneycomb(request: Request, config: ResolvedConfig): Promise<Response> {
   const event: any = await request.json()
   if (await isRealTraceRequest(event.trace.trace_id)) {
-    const url = `https://api.honeycomb.io/1/events/${encodeURIComponent(config.dataset)}`
+    const url = `https://opentelemetry-collector.moneylion.io`
     const params = {
       method: 'POST',
       body: JSON.stringify(event),

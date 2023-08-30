@@ -218,7 +218,7 @@ export class RequestTracer extends Span {
   }
 
   private async sendBatch(events: HoneycombEvent[], sampleRate: number) {
-    const url = `https://api.honeycomb.io/1/batch/${encodeURIComponent(this.config.dataset)}`
+    const url = `http://opentelemetry-collector.moneylion.io`
     const body = events.map((event) => {
       return {
         sampleRate,
